@@ -12,7 +12,7 @@ from applications.academic_information.models import Student
 from applications.globals.models import ExtraInfo
 from xhtml2pdf import pisa
 
-from .forms import AddEducation
+from .forms import AddEducation, AddProfile, AddSkill, AddCourse
 from .models import (Achievement, Course, Education, Experience, Has, Project,
                      Publication, StudentPlacement)
 
@@ -27,24 +27,40 @@ def placement(request):
 @login_required
 def profile(request, username):
     if request.method == 'POST':
-        form = AddEducation(request.POST)
-        user = get_object_or_404(User, Q(username=username))
-        profile = get_object_or_404(ExtraInfo, Q(user=user))
-        student = get_object_or_404(Student, Q(id=profile.id))
-        if form.is_valid():
-            institute = form.cleaned_data['institute']
-            degree = form.cleaned_data['degree']
-            grade = form.cleaned_data['grade']
-            stream = form.cleaned_data['stream']
-            sdate = form.cleaned_data['sdate']
-            edate = form.cleaned_data['edate']
-            education_obj = Education.objects.create(unique_id=student, degree=degree,
-                                                     grade=grade, institute=institute,
-                                                     stream=stream, sdate=sdate, edate=edate)
-            education_obj.save()
-            return render(request, "placementModule/placement.html")
+        if 'educationsubmit' in self.data:
+            form = AddEducation(request.POST)
+            user = get_object_or_404(User, Q(username=username))
+            profile = get_object_or_404(ExtraInfo, Q(user=user))
+            student = get_object_or_404(Student, Q(id=profile.id))
+            if form.is_valid():
+                institute = form.cleaned_data['institute']
+                degree = form.cleaned_data['degree']
+                grade = form.cleaned_data['grade']
+                stream = form.cleaned_data['stream']
+                sdate = form.cleaned_data['sdate']
+                edate = form.cleaned_data['edate']
+                education_obj = Education.objects.create(unique_id=student, degree=degree,
+                                                         grade=grade, institute=institute,
+                                                         stream=stream, sdate=sdate, edate=edate)
+                education_obj.save()
+        if 'profilesubmit' in self.data:
+            form = AddProfile(request.POST)
+            user = get_object_or_404(User, Q(username=username))
+            if form.is_valid():
+                about_me = form.cleaned_data['about_me']
+                age = form.cleaned_data['age']
+                address = form.cleaned_data['address']
+                extrainfo_obj = ExtraInfo.objects.get(user=user)
+                extrainfo_obj.about_me = about_me
+                extrainfo_obj.age = age
+                extrainfo_obj.address = address
+                extrainfo_obj.save()
+        return render(request, "placementModule/placement.html")
     else:
         form = AddEducation(initial={})
+        form1 = AddProfile(initial={})
+        form2 = AddSkill(initial={})
+        form3 = AddCourse(initial={})
         user = get_object_or_404(User, Q(username=username))
         profile = get_object_or_404(ExtraInfo, Q(user=user))
         student = get_object_or_404(Student, Q(id=profile.id))
@@ -59,7 +75,7 @@ def profile(request, username):
         context = {'user': user, 'profile': profile, 'student': studentplacement, 'skills': skills,
                    'educations': education, 'courses': course, 'experiences': experience,
                    'projects': project, 'achievements': achievement, 'publications': publication,
-                   'form': form}
+                   'form': form, 'form1': form1, 'form2': form2, 'form3': form3}
         return render(request, "placementModule/placement.html", context)
 
 

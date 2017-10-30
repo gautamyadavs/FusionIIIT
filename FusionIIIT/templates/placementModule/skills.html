@@ -11,34 +11,37 @@
         TODO: Add a proper JS logic for Skills!
         {% endcomment %}
 
-        <form class="ui form">
+        <form method="post" class="ui form" role="form">
             {% comment %}The add a new skill Accordian starts here!{% endcomment %}
             <div class="ui active accordion field">
                 <div class="title">
                     <i class="icon dropdown"></i>
                     Add a new Skill/Technology
                 </div>
-
+                {{ form2.non_field_errors }}
                 <div class="active content fields">
+                  {% csrf_token %}
                     <div class="two fields">
                         <div class="one wide field"></div>
                         <div class="eight wide field">
-                            <label>Skill/Technology:</label>
-                            <input placeholder="Skill/Technology"
-                                   class="ui fluid input"
-                                   type="text">
+                          {{ form2.skill.errors }}
+                          <label for="{{ form.skill.id_for_label }}">
+                            Skill/Technology:
+                          </label>
+                          {{ form2.skill }}
                         </div>
 
                         <div class="four wide field">
-                            <label>Rate:</label>
-                            <input placeholder="Rate"
-                                   class="ui fluid input"
-                                   type="text">
+                          {{ form2.skill_rating.errors }}
+                          <label for="{{ form2.skill_rating.id_for_label }}">
+                            Rate:
+                          </label>
+                            {{ form2.skill_rating }}
                         </div>
 
                         <div class="two wide field">
                             <label><br></label>
-                            <button class="ui primary button">Add</button>
+                            <button class="ui primary button" type="submit">Add</button>
                         </div>
                     </div>
                 </div>

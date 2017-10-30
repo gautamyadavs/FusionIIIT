@@ -9,64 +9,73 @@
     <div class="ui active tab" data-tab="achievements">
         <div class="ui vertical segment">
             {% comment %}Form Tag starts here!{% endcomment %}
-            <form>
+            <form method="post" class="ui form" role="form">
                 {% comment %}Then add a new achievement Accordian starts here!{% endcomment %}
                 <div class="ui active accordion field">
                     <div class="title">
                         <i class="icon dropdown"></i>
                         Add a new Achievement!
                     </div>
-
+                    {{ form.non_field_errors }}
                     <div class="active content">
                         <div class="ui form" style="padding: 8px; padding-left: 24px; padding-right: 24px;">
-
+                          {% csrf_token %}
                             <div class="two fields">
                                 <div class="twelve wide field">
-                                    <label>Achievement Name:</label>
+                                  {{ form.achievement.errors }}
+                                  <label for="{{ form.achievement.id_for_label }}">
+                                      Achievement Name:
+                                    </label>
                                     <div class="ui fluid large input">
                                         {% comment %}The Achievement Name input!{% endcomment %}
-                                        <input>
+                                        {{ form.achievement }}
                                     </div>
                                 </div>
 
                                 <div class="four wide field">
-                                    <label>Type:</label>
-                                    <select class="ui search fluid large dropdown">
-                                        <option value="">Select</option>
-                                        <option value="educational">Educational</option>
-                                        <option value="other">Other</option>
-                                    </select>
+                                  {{ form.achievement_type.errors }}
+                                  <label for="{{ form.achievement_type.id_for_label }}">
+                                    Type:
+                                  </label>
+                                    <div class="ui fluid large input">
+                                      {{ form.achievement_type }}
+                                    </div>
                                 </div>
                             </div>
 
-                            {% comment %}The start and end date input{% endcomment %}
+                            {% comment %}The from date input{% endcomment %}
                             <div class="two fields">
                               <div class="four wide field">
-                                <label>Date:</label>
+                                {{ form.date_earned.errors }}
+                                <label for="{{ form.date_earned.id_for_label }}">
+                                  Date:
+                                </label>
                                 <div class="ui calendar" id="rangestart2">
                                     <div class="ui input left icon">
                                         <i class="calendar icon"></i>
-                                        <input type="text" placeholder="From">
+                                        {{ form.date_earned }}
                                     </div>
                                 </div>
                               </div>
                                 <div class="twelve wide field">
-                                    <label>
+                                  {{ form.issuer.errors }}
+                                  <label for="{{ form.issuer.id_for_label }}">
                                         Issuer
                                     </label>
                                     <div class="ui fluid large input">
-                                        <input>
+                                        {{ form.issuer }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="two fields">
                                 <div class="twelve wide field">
-                                    <label>
+                                  {{ form.description.errors }}
+                                  <label for="{{ form.description.id_for_label }}">
                                         Description
                                     </label>
 
-                                    <textarea rows="2"></textarea>
+                                    {{ form.description }}
                                 </div>
 
                                 <div class="four wide field">
