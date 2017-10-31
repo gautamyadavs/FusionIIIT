@@ -16,29 +16,29 @@
                         <i class="icon dropdown"></i>
                         Add a new Achievement!
                     </div>
-                    {{ form.non_field_errors }}
+                    {{ form4.non_field_errors }}
                     <div class="active content">
                         <div class="ui form" style="padding: 8px; padding-left: 24px; padding-right: 24px;">
                           {% csrf_token %}
                             <div class="two fields">
                                 <div class="twelve wide field">
-                                  {{ form.achievement.errors }}
-                                  <label for="{{ form.achievement.id_for_label }}">
+                                  {{ form4.achievement.errors }}
+                                  <label for="{{ form4.achievement.id_for_label }}">
                                       Achievement Name:
                                     </label>
                                     <div class="ui fluid large input">
                                         {% comment %}The Achievement Name input!{% endcomment %}
-                                        {{ form.achievement }}
+                                        {{ form4.achievement }}
                                     </div>
                                 </div>
 
                                 <div class="four wide field">
-                                  {{ form.achievement_type.errors }}
-                                  <label for="{{ form.achievement_type.id_for_label }}">
+                                  {{ form4.achievement_type.errors }}
+                                  <label for="{{ form4.achievement_type.id_for_label }}">
                                     Type:
                                   </label>
                                     <div class="ui fluid large input">
-                                      {{ form.achievement_type }}
+                                      {{ form4.achievement_type }}
                                     </div>
                                 </div>
                             </div>
@@ -46,36 +46,36 @@
                             {% comment %}The from date input{% endcomment %}
                             <div class="two fields">
                               <div class="four wide field">
-                                {{ form.date_earned.errors }}
-                                <label for="{{ form.date_earned.id_for_label }}">
+                                {{ form4.date_earned.errors }}
+                                <label for="{{ form4.date_earned.id_for_label }}">
                                   Date:
                                 </label>
                                 <div class="ui calendar" id="rangestart2">
                                     <div class="ui input left icon">
                                         <i class="calendar icon"></i>
-                                        {{ form.date_earned }}
+                                        {{ form4.date_earned }}
                                     </div>
                                 </div>
                               </div>
                                 <div class="twelve wide field">
-                                  {{ form.issuer.errors }}
-                                  <label for="{{ form.issuer.id_for_label }}">
+                                  {{ form4.issuer.errors }}
+                                  <label for="{{ form4.issuer.id_for_label }}">
                                         Issuer
                                     </label>
                                     <div class="ui fluid large input">
-                                        {{ form.issuer }}
+                                        {{ form4.issuer }}
                                     </div>
                                 </div>
                             </div>
 
                             <div class="two fields">
                                 <div class="twelve wide field">
-                                  {{ form.description.errors }}
-                                  <label for="{{ form.description.id_for_label }}">
+                                  {{ form4.description.errors }}
+                                  <label for="{{ form4.description.id_for_label }}">
                                         Description
                                     </label>
 
-                                    {{ form.description }}
+                                    {{ form4.description }}
                                 </div>
 
                                 <div class="four wide field">
@@ -99,7 +99,7 @@
             <table class="ui fixed sortable celled table">
                 <thead>
                 <tr>
-                    <th class="six wide">Achievement Name</th>
+                    <th class="four wide">Achievement Name</th>
                     <th>Type</th>
                     <th>Issuer</th>
                     <th>Date</th>

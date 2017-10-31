@@ -153,9 +153,10 @@ def profile(request, username):
                     sdate = form.cleaned_data['sdate']
                     edate = form.cleaned_data['edate']
                     experience_obj = Experience.objects.create(unique_id=student, title=title,
-                                                         company=company, location=location,
-                                                         status=status, description=description,
-                                                         sdate=sdate, edate=edate)
+                                                               company=company, location=location,
+                                                               status=status,
+                                                               description=description,
+                                                               sdate=sdate, edate=edate)
                     experience_obj.save()
         form = AddEducation(initial={})
         form1 = AddProfile(initial={})
