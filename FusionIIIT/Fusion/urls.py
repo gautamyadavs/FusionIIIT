@@ -33,6 +33,9 @@ urlpatterns = [
     url(r'^placement/', include('applications.placement_cell.urls')),
     url(r'^healthcenter/', include('applications.health_center.urls')),
     url(r'^spacs/', include('applications.scholarships.urls')),
+<<<<<<< HEAD
+>>>>>>> 3Peers/master
+=======
 >>>>>>> 3Peers/master
     url(r'^visitorhostel/', include('applications.visitor_hostel.urls')),
     url(r'^admin/', admin.site.urls),
