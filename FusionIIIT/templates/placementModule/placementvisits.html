@@ -5,11 +5,17 @@
             Add a new Visit
         </a>
 
+<<<<<<< HEAD
         {% if chairmanvisit %}
         <a class="item" data-tab="managevisit">
             Manage Visits
         </a>
         {% endif %}
+=======
+        <a class="item" data-tab="managevisit">
+            Manage Visits
+        </a>
+>>>>>>> 3Peers/master
     </div>
     {% comment %}The tab menu ends here!{% endcomment %}
 
@@ -24,6 +30,7 @@
                         Add a new Placement Visit!
                     </div>
 
+<<<<<<< HEAD
                     {{ form.non_field_errors }}
                     <div class="active content">
                         <div class="ui form" style="padding: 8px; padding-left: 24px; padding-right: 24px;">
@@ -32,17 +39,32 @@
                                 <div class="field">
                                   {{ form.company_name.errors }}
                                     <label for="{{ form.company_name.id_for_label }}">
+=======
+                    <div class="active content">
+                        <div class="ui form" style="padding: 8px; padding-left: 24px; padding-right: 24px;">
+                            <div class="two fields">
+                                <div class="field">
+                                    <label>
+>>>>>>> 3Peers/master
                                         Company Name
                                     </label>
 
                                     <div class="ui large input">
+<<<<<<< HEAD
                                         {{ form.company_name }}
+=======
+                                        <input>
+>>>>>>> 3Peers/master
                                     </div>
                                 </div>
 
                                 <div class="field">
+<<<<<<< HEAD
                                   {{ form.visiting_date.errors }}
                                     <label for="{{ form.visiting_date.id_for_label }}">
+=======
+                                    <label>
+>>>>>>> 3Peers/master
                                         Date:
                                     </label>
 
@@ -52,13 +74,18 @@
                                     <div class="ui calendar" id="">
                                         <div class="ui input left icon">
                                             <i class="calendar icon"></i>
+<<<<<<< HEAD
                                             {{ form.visiting_date }}
+=======
+                                            <input type="text" placeholder="Date">
+>>>>>>> 3Peers/master
                                         </div>
                                     </div>
                                 </div>
                             </div>
 
                             {% comment %} A new row starts here!{% endcomment %}
+<<<<<<< HEAD
                             <div class="field">
                                 {{ form.description.errors }}
                                 <label>Description:</label>
@@ -73,10 +100,16 @@
                                 <div class="field">
                                   {{ form.location.errors }}
                                     <label for="{{ form.location.id_for_label }}">
+=======
+                            <div class="two fields">
+                                <div class="field">
+                                    <label>
+>>>>>>> 3Peers/master
                                         Location
                                     </label>
 
                                     <div class="ui large input">
+<<<<<<< HEAD
                                         {{ form.location }}
                                     </div>
                                 </div>
@@ -89,6 +122,34 @@
                                 </div>
                             </div>
 
+=======
+                                        <input>
+                                    </div>
+                                </div>
+
+                                <div class="field">
+                                    <label>City</label>
+                                    <div class="ui input">
+                                        <input>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% comment %} A new row starts here!{% endcomment %}
+                            <div class="field">
+                                <label>Description:</label>
+                                <div class="ui fluid large input">
+                                    <textarea rows="2"></textarea>
+                                </div>
+                            </div>
+
+                            {% comment %}A new row starts here!{% endcomment %}
+                            <div class="field">
+                                <button class="ui large primary button right floated" type="submit">
+                                    Submit
+                                </button>
+                            </div>
+>>>>>>> 3Peers/master
                         </div>
                     </div>
                 </div>
@@ -105,10 +166,16 @@
     </div>
 
     {% comment %}
+<<<<<<< HEAD
         TODO: You people should add a contact detail of the company here itself maybe phone or email!
     {% endcomment %}
 
       {% if chairmanvisit %}
+=======
+        TODO: You people should add a contact detail of the company here itself maybe phone# or email!
+    {% endcomment %}
+
+>>>>>>> 3Peers/master
     <div class="ui tab" data-tab="managevisit">
         <div class="ui vertical segment">
 
@@ -126,12 +193,17 @@
                         {% endcomment %}
                         <th class="three wide">Location</th>
                         <th class="five wide">Description</th>
+<<<<<<< HEAD
                         <th class="one wide">Delete</th>
+=======
+                        <th class="one wide">Edit</th>
+>>>>>>> 3Peers/master
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>
+<<<<<<< HEAD
                             {{ chairmanvisit.visiting_date }}
                         </td>
 
@@ -145,13 +217,80 @@
 
                         <td>
                             {{ chairmanvisit.description }}
+=======
+                           10<sup>th</sup> Aug'17
+                        </td>
+
+                        <td>
+                            Oracle India Ltd.
+                        </td>
+
+                        <td>
+                            Bangalore.
+                        </td>
+
+                        <td>
+                            ...
+>>>>>>> 3Peers/master
                         </td>
 
                         <td>
                             <div class="ui inverted circular icon button" style="margin: auto;">
+<<<<<<< HEAD
                                 <button class="ui small primary button">
                                   <i class="wrench black icon"></i>
                                 </button>
+=======
+                                <i class="wrench black icon"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                           10<sup>th</sup> Aug'17
+                        </td>
+
+                        <td>
+                            Oracle India Ltd.
+                        </td>
+
+                        <td>
+                            Bangalore.
+                        </td>
+
+                        <td>
+                            ...
+                        </td>
+
+                        <td>
+                            <div class="ui inverted circular icon button" style="margin: auto;">
+                                <i class="wrench black icon"></i>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                           10<sup>th</sup> Aug'17
+                        </td>
+
+                        <td>
+                            Oracle India Ltd.
+                        </td>
+
+                        <td>
+                            Bangalore.
+                        </td>
+
+                        <td>
+                            ...
+                        </td>
+
+                        <td>
+                            <div class="ui inverted circular icon button" style="margin: auto;">
+                                <i class="wrench black icon"></i>
+>>>>>>> 3Peers/master
                             </div>
                         </td>
                     </tr>
@@ -160,6 +299,11 @@
             </table>
         </div>
     </div>
+<<<<<<< HEAD
 {% endif %}
 
 {% endblock %}
+=======
+
+{% endblock %}
+>>>>>>> 3Peers/master

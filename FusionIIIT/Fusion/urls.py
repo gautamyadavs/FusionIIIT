@@ -27,7 +27,13 @@ urlpatterns = [
     url(r'^complaint/', include('applications.complaint_system.urls')),
     url(r'^healthcenter/', include('applications.health_center.urls')),
     url(r'^leave/', include('applications.leave.urls')),
+<<<<<<< HEAD
     url(r'^placement/', include('applications.placement_cell.urls', namespace='placement')),
+=======
+    url(r'^placement/', include('applications.placement_cell.urls')),
+    url(r'^healthcenter/', include('applications.health_center.urls')),
+    url(r'^spacs/', include('applications.scholarships.urls')),
+>>>>>>> 3Peers/master
     url(r'^visitorhostel/', include('applications.visitor_hostel.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^accounts/', include('allauth.urls')),
